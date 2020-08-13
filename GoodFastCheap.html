@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good Fast Cheap</title>
+</head>
+<body>
+<style>
+    th {
+        text-align: left;
+    }
+</style>
+<table>
+    <tr>
+        <th>Fast</th>
+        <td><input type="checkbox" id="fast" onclick="tick(this.id)" /></td>
+    </tr>
+    <tr>
+        <th>Good</th>
+        <td><input type="checkbox" id="good" onclick="tick(this.id)"/></td>
+    </tr>
+    <tr>
+        <th>Cheap</th>
+        <td><input type="checkbox" id="cheap" onclick="tick(this.id)"/></td>
+    </tr>
+</table>
+<script>
+    function tick(group){
+    let cheap = document.getElementById('cheap');
+    let good = document.getElementById('good');
+    let fast = document.getElementById('fast');
+
+    switch (group){
+        case 'good':
+            if (good.checked && fast.checked){
+                cheap.checked = false;
+            }
+            break;
+        case 'fast':
+            if (fast.checked && cheap.checked){
+                good.checked = false;
+            }
+            break;
+        case 'cheap':
+            if (good.checked && cheap.checked){
+                fast.checked = false;
+            }
+            break;}}
+
+</script>
+</body>
+</html>
